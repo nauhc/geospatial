@@ -24,7 +24,6 @@ const STYLE = {
       GREEN: [195,214,27]
     },
     BUILDING: [253, 128, 93]
-    // BUILDING: [126,168,171]
   },
   OUTDOOR: {
     MAP: "mapbox://styles/mapbox/outdoors-v11",
@@ -43,25 +42,21 @@ const STYLE = {
     BUILDING: [195,214,27]
   }
 }
-// const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
 
-  // Source data CSV
+// Source data
 const DATA_URL = {
-  BUILDINGS: "data/buildings.json", // eslint-disable-line
-  TRIPS: "data/trips.json" // eslint-disable-line
+  BUILDINGS: "data/buildings.json", 
+  TRIPS: "data/trips.json" 
 };
-
 
 const INITIAL_VIEW_STATE = {
   longitude: -74,
   latitude: 40.71,
-  // longitude: 139.638,
-  // latitude: 35.45,
   zoom: 14,
   maxZoom: 16,
   pitch: 35,
   bearing: 0
-}
+};
 
 const LIGHT_SETTINGS = {
   lightsPosition: [-74.05, 40.7, 8000, -73.5, 41, 5000],
@@ -71,8 +66,6 @@ const LIGHT_SETTINGS = {
   lightsStrength: [2.0, 0.0, 0.0, 0.0],
   numberOfLights: 2
 };
-
-
 
 export default function App({
   buildings = DATA_URL.BUILDINGS,
@@ -122,8 +115,6 @@ export default function App({
       opacity: 0.15,
       getPolygon: f => f.polygon,
       getElevation: f => f.height,
-      // getFillColor: f => [74, 80, 87],
-      // getFillColor: f => [238, 117, 106],
       getFillColor: style.BUILDING,
       lightSettings: LIGHT_SETTINGS
     })
