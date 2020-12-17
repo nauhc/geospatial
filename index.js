@@ -45,8 +45,11 @@ const STYLE = {
 
 // Source data
 const DATA_URL = {
-  BUILDINGS: "data/buildings.json", 
-  TRIPS: "data/trips.json" 
+  // BUILDINGS: "data/buildings.json", 
+  // TRIPS: "data/trips.json"
+  BUILDINGS:
+    'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/trips/buildings.json',
+  TRIPS: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/trips/trips-v7.json' 
 };
 
 const INITIAL_VIEW_STATE = {
