@@ -1,15 +1,22 @@
-// NOTE: To use this example standalone (e.g. outside of deck.gl repo)
-// delete the local development overrides at the bottom of this file
+var path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-const CONFIG = {
+const PATHS = {
+  src: __dirname,
+  dist: path.join(__dirname, "./build")
+};
+
+module.exports = {
   mode: 'development',
 
   entry: {
-    app: './app.js'
+    app: [PATHS.src]
   },
 
   output: {
-    library: 'App'
+    // library: 'App'
+    path: PATHS.dist,
+    filename: "bundle.js"
   },
   
   devtool: 'source-map',
@@ -25,7 +32,7 @@ const CONFIG = {
     watchOptions: { poll: true }, //watching file changes use polling
     // writeToDisk: true, //whether output bundle.js, vender.bundle.js, and index.html
     // host: "0.0.0.0",
-    port: 7000
+    port: 7070
   },
   
   module: {
@@ -41,8 +48,13 @@ const CONFIG = {
         }
       }
     ]
-  }
-};
+  },
 
-// This line enables bundling against src in this repo rather than installed module
-module.exports = env => (env ? require('../../webpack.config.local')(CONFIG)(env) : CONFIG);
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./index.html",
+      path: PATHS.dist,
+      filename: "index.html"
+    })
+  ]
+};
