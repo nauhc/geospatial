@@ -136,6 +136,6 @@ export default function App({
   )
 }
 
-export function renderToDOM(container){
-  render(<App />, container);
-}
+render(
+  <App />, document.getElementById("app")
+)
